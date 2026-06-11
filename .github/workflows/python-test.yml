@@ -8,6 +8,10 @@ on:
   schedule:
     - cron: '0 2 * * *'  # Daily at 2 AM UTC
 
+# Least privilege: this workflow only reads the repository.
+permissions:
+  contents: read
+
 env:
   CARGO_TERM_COLOR: always
 
