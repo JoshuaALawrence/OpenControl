@@ -93,7 +93,7 @@ jobs:
           }
 
       - name: Upload binary artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: OpenControl-${{ runner.os }}
           path: target/release/OpenControl.exe
