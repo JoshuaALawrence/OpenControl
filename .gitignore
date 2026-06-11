@@ -1,0 +1,31 @@
+# Rust build output
+/target/
+target/
+
+# Python venv (legacy; removed)
+.venv/
+venv/
+env/
+ENV/
+__pycache__/
+*.py[cod]
+
+# Editors / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Logs and captures
+*.log
+captures/
+*.png
+*.jpg
+!docs/**/*.png
+
+# Tooling caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+

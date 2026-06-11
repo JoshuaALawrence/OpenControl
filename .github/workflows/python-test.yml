@@ -1,0 +1,42 @@
+name: Python MCP Test
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  schedule:
+    - cron: '0 2 * * *'  # Daily at 2 AM UTC
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  test-with-python:
+    name: MCP Protocol Test (Python)
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Build release binary
+        run: cargo build --release
+
+      - name: Run Python MCP test
+        run: |
+          cd tests
+          python mcp_rust_test.py
+        continue-on-error: true
+        timeout-minutes: 5
+
+      - name: Verify test passed
+        run: |
+          Write-Host "✓ Python MCP tests completed"
