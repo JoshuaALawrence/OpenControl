@@ -158,7 +158,6 @@ fn test_new_feature() {
 - ✓ Build release binary
 - ✓ Create GitHub Release
 - ✓ Upload `OpenControl.exe` as asset
-- ✓ Create release branch
 
 ## Releasing
 

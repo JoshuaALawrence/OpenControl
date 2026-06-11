@@ -208,9 +208,6 @@ Runs on **tag push** (e.g., `git push origin v0.2.0`):
   - Currently disabled (`publish = false` in Cargo.toml)
   - Can be enabled for library releases
 
-- **Create Release Branch**
-  - Creates `release/X.Y.Z` branch for tracking
-
 #### `.github/workflows/python-test.yml` — Python Protocol Tests
 
 Runs:
