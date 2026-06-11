@@ -1,0 +1,60 @@
+{
+  "// note": "OpenControl is a single self-contained Rust executable. Build with `cargo build --release`, then point your MCP host at the produced binary.",
+
+  "vscode (.vscode/mcp.json or user mcp.json)": {
+    "servers": {
+      "computer-use": {
+        "type": "stdio",
+        "command": "${workspaceFolder}/target/release/OpenControl.exe"
+      }
+    }
+  },
+
+  "claude desktop (claude_desktop_config.json)": {
+    "mcpServers": {
+      "computer-use": {
+        "command": "C:\\path\\to\\OpenControl\\target\\release\\OpenControl.exe"
+      }
+    }
+  },
+
+  "// privacy": "Optional. Block apps from the AI: matching windows are redacted from every screenshot/OCR result and refused for control. Values are ';'- or ','-separated. This is a user control; the agent cannot change it.",
+
+  "vscode with app blocklist (env)": {
+    "servers": {
+      "computer-use": {
+        "type": "stdio",
+        "command": "${workspaceFolder}/target/release/OpenControl.exe",
+        "env": {
+          "OPENCONTROL_BLOCK_EXE": "KeePass.exe; Bitwarden.exe; 1Password.exe",
+          "OPENCONTROL_BLOCK_TITLE": "*Password*; *Incognito*"
+        }
+      }
+    }
+  },
+
+  "claude desktop with app blocklist (env)": {
+    "mcpServers": {
+      "computer-use": {
+        "command": "C:\\path\\to\\OpenControl\\target\\release\\OpenControl.exe",
+        "env": {
+          "OPENCONTROL_BLOCK_EXE": "KeePass.exe; Bitwarden.exe",
+          "OPENCONTROL_BLOCK_TITLE": "*Password*"
+        }
+      }
+    }
+  },
+
+  "// blocklist file": "For finer control (per-rule blur, exact window class, custom fill color) place this JSON at %APPDATA%\\OpenControl\\blocklist.json, or point OPENCONTROL_BLOCKLIST at any path. Matching is case-insensitive; fields within a rule are AND-ed, rules are OR-ed; 'title' is a substring match or a '*' glob.",
+
+  "blocklist.json (example)": {
+    "fail_closed": true,
+    "default_mode": { "type": "solid", "color": "#000000" },
+    "rules": [
+      { "exe_name": "KeePass.exe" },
+      { "exe_path": "1Password" },
+      { "title": "*Incognito*", "mode": { "type": "blur", "sigma": 24 } },
+      { "class_name": "Chrome_WidgetWin_1", "title": "*Bitwarden*" }
+    ]
+  }
+}

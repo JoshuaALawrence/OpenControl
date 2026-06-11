@@ -1,0 +1,24 @@
+[workspace]
+
+[package]
+publish = false
+pre-release-commit-message = "chore: release version {{version}}"
+pre-release-replacements = [
+  { file = "Cargo.toml", search = "version = \"{{prev_version}}\"", replace = "version = \"{{version}}\"" },
+  { file = "CHANGELOG.md", search = "## Unreleased", replace = "## {{version}} ({{date}})\n\n## Unreleased" },
+]
+pre-release-replacements-skip = ["version"]
+tag-message = "Release {{version}}"
+tag-prefix = "v"
+tag-exists-strategy = "ignore"
+sign-commit = false
+sign-tag = false
+consolidate-commits = false
+consolidate-pushes = false
+
+[[pre-release-replacements]]
+file = "Cargo.toml"
+search = "version = \"[a-z0-9.-]+\""
+replace = "version = \"{{version}}\""
+exactly = 1
+prelude = ""

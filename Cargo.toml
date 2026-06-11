@@ -1,0 +1,77 @@
+[package]
+name = "opencontrol"
+version = "0.1.0"
+edition = "2021"
+description = "An all-Rust Model Context Protocol server that gives any AI full control of a Windows computer."
+license = "AGPL-3.0-or-later"
+publish = false
+
+[lib]
+name = "opencontrol"
+path = "src/lib.rs"
+
+[[bin]]
+name = "OpenControl"
+path = "src/main.rs"
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+strip = true
+
+[lints.rust]
+dead_code = "warn"
+
+[build-dependencies]
+winresource = "0.1"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+base64 = "0.22"
+image = { version = "0.25", default-features = false, features = ["png", "jpeg"] }
+rmcp = { version = "1.7.0", features = ["server", "macros", "transport-io", "schemars"] }
+tokio = { version = "1.52.3", features = ["rt-multi-thread", "macros", "io-std", "sync"] }
+schemars = "1.2.1"
+anyhow = "1.0.102"
+clipboard-win = "5"
+
+[dependencies.windows]
+version = "0.58"
+features = [
+    "Win32_Foundation",
+    "Win32_UI_WindowsAndMessaging",
+    "Win32_UI_Input_KeyboardAndMouse",
+    "Win32_UI_Accessibility",
+    "Win32_UI_HiDpi",
+    "Win32_Graphics_Gdi",
+    "Win32_Graphics_Dwm",
+    "Win32_Graphics_Direct3D",
+    "Win32_Graphics_Direct3D11",
+    "Win32_Graphics_Dxgi",
+    "Win32_Graphics_Dxgi_Common",
+    "Win32_System_Com",
+    "Win32_System_Console",
+    "Win32_System_Threading",
+    "Win32_System_ProcessStatus",
+    "Win32_System_Diagnostics_ToolHelp",
+    "Win32_System_SystemInformation",
+    "Win32_Storage_Xps",
+    "Win32_Storage_FileSystem",
+    "Win32_UI_Shell",
+    "Win32_System_WinRT",
+    "Win32_System_WinRT_Graphics_Capture",
+    "Win32_System_WinRT_Direct3D11",
+    "Graphics_Capture",
+    "Graphics_DirectX",
+    "Graphics_DirectX_Direct3D11",
+    "Graphics_Imaging",
+    "Media_Ocr",
+    "Storage_Streams",
+    "Security_Cryptography",
+    "Globalization",
+    "Foundation",
+    "Foundation_Collections",
+    "Foundation_Metadata",
+]
