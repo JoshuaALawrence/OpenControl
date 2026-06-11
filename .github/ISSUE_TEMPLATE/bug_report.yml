@@ -1,0 +1,99 @@
+name: Bug report
+description: Report reproducible incorrect behavior in OpenControl.
+title: "bug: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. Do not use this form for security vulnerabilities; follow SECURITY.md instead.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What happened?
+      placeholder: OpenControl...
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Which part of OpenControl is affected?
+      options:
+        - MCP protocol or tool schema
+        - Screen capture or observe
+        - UI Automation or element actions
+        - OCR or vision
+        - Mouse or keyboard input
+        - Windows or app management
+        - Clipboard, files, commands, or processes
+        - Blocklist or privacy behavior
+        - Build, install, or release
+        - Documentation
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+      description: Include commands, MCP calls, host setup, and any window/app state needed to reproduce.
+      placeholder: |
+        1. Build or install OpenControl...
+        2. Configure the MCP host...
+        3. Call ...
+        4. See ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What happened instead?
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Release version, commit SHA, or `main`.
+      placeholder: v0.1.0
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Windows version, MCP host, install method, Rust version if building from source, and relevant display/DPI details.
+      placeholder: |
+        Windows: 11 23H2
+        MCP host: VS Code / Claude Desktop / Cursor / other
+        Install method: release binary / cargo build --release
+        Rust: rustc 1.xx.x
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs and screenshots
+      description: Paste relevant logs, command output, screenshots, or MCP responses. Remove secrets, tokens, private text, and unrelated personal data.
+      render: text
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues and discussions.
+          required: true
+        - label: This is not a security vulnerability. I will report vulnerabilities privately using SECURITY.md.
+          required: true
+        - label: I removed secrets, tokens, and private data from logs or screenshots.
+          required: true

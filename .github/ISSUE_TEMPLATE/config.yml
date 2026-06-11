@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/JoshuaALawrence/OpenControl/security/advisories/new
+    about: Please report vulnerabilities privately. You may also email joshua@lawrence.zip as described in SECURITY.md.
+  - name: Questions and troubleshooting
+    url: https://github.com/JoshuaALawrence/OpenControl/discussions
+    about: Ask usage questions, setup questions, and troubleshooting questions in Discussions.
+  - name: Documentation and setup guides
+    url: https://github.com/JoshuaALawrence/OpenControl/tree/main/docs/setup
+    about: Check the client-specific setup guides before opening an issue.

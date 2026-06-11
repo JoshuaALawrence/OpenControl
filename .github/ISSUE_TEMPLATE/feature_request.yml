@@ -1,0 +1,73 @@
+name: Feature request
+description: Suggest an improvement or new capability for OpenControl.
+title: "feat: "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting an improvement. For major tool, protocol, safety, or privacy changes, describe the user workflow and expected boundaries clearly.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What user problem or workflow gap does this solve?
+      placeholder: When using OpenControl to..., it is difficult to...
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: What should OpenControl do differently?
+      placeholder: Add or change...
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Which part of OpenControl would change?
+      options:
+        - New MCP tool
+        - Existing MCP tool behavior
+        - Screen capture or observe
+        - UI Automation or element actions
+        - OCR or vision
+        - Mouse or keyboard input
+        - Windows or app management
+        - Clipboard, files, commands, or processes
+        - Blocklist or privacy behavior
+        - Build, install, or release
+        - Documentation
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: examples
+    attributes:
+      label: Example usage
+      description: Show the MCP call, command, configuration, or user workflow you have in mind.
+      render: text
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What workarounds or different designs have you considered?
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Compatibility, safety, and privacy impact
+      description: Note any changes to tool schemas, documented behavior, blocklist/privacy guarantees, command execution, file access, screenshots, OCR, or user consent.
+      placeholder: This should be backward compatible because...
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues and discussions.
+          required: true
+        - label: I considered whether this changes privacy, safety, or security boundaries.
+          required: true
