@@ -20,8 +20,6 @@ Thumbs.db
 # Logs and captures
 *.log
 captures/
-*.png
-*.jpg
 !docs/**/*.png
 
 # Tooling caches
